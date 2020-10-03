@@ -1,6 +1,10 @@
 const yargs = require("yargs");
 const pjson = require("./package.json");
 const path = require("path");
+const { promisify } = require("util");
+
+const { inputStream, outputStream } = require("./streams/fs-streams");
+const { pipeline } = promisify(require("stream"));
 
 yargs
   .usage("Usage: $0 options")
@@ -62,4 +66,18 @@ yargs
     }
   });
 
-console.dir(yargs.argv);
+// console.dir(yargs.argv);
+
+const { input, output, action, shift } = yargs.argv;
+
+async function run() {
+  await pipeline(inputStream(input), outputStream(output), (err) => {
+    if (err) {
+      console.error("Error: ", err);
+      process.exitCode = -1;
+    }
+  });
+  // console.log("pipe is ended");
+}
+
+run().catch(console.error);
