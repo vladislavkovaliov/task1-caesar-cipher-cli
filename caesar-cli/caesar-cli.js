@@ -4,6 +4,7 @@ const path = require("path");
 const { promisify } = require("util");
 
 const { inputStream, outputStream } = require("./streams/fs-streams");
+const { CaesarTransform } = require("./streams/caesar-transform");
 const { pipeline } = promisify(require("stream"));
 
 yargs
@@ -66,18 +67,23 @@ yargs
     }
   });
 
-// console.dir(yargs.argv);
-
 const { input, output, action, shift } = yargs.argv;
 
 async function run() {
-  await pipeline(inputStream(input), outputStream(output), (err) => {
-    if (err) {
-      console.error("Error: ", err);
-      process.exitCode = -1;
+  // TODO: check typeof of shift (typeof(shift) === 'number'?)
+  const correctedShift = action === "encode" ? shift : -shift;
+
+  await pipeline(
+    inputStream(input),
+    new CaesarTransform(shift, { decodeStrings: false }),
+    outputStream(output),
+    (err) => {
+      if (err) {
+        console.error("Error: ", err);
+        process.exitCode = -1;
+      }
     }
-  });
-  // console.log("pipe is ended");
+  );
 }
 
 run().catch(console.error);
