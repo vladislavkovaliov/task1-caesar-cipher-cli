@@ -10,9 +10,9 @@ const inputStream = (filename, encoding = "utf-8") => {
   }
 };
 
-const outputStream = (filename) => {
+const outputStream = (filename, encoding = "utf-8") => {
   if (filename && typeof filename === "string") {
-    return createWriteStream(apath(filename));
+    return createWriteStream(apath(filename), { flags: "a", encoding });
   } else {
     // TODO: check for typeof(filename) !== 'string' (maybe it be useful?)
     return process.stdout;
