@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "Caesar cipher encode/decode CLI tool",
   "main": "caesar-cli.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maksumov/task1-caesar-cipher-cli.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node caesar-cli --help"
   },
   "keywords": [
     "rs-school",
