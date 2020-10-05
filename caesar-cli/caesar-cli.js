@@ -7,7 +7,6 @@ const { pipeline } = promisify(require("stream"));
 const { input, output, action, shift } = require("./utils/args-parser");
 
 async function run() {
-  // TODO: check typeof of shift (typeof(shift) === 'number'?)
   const correctedShift = action === "encode" ? shift : -shift;
 
   await pipeline(
