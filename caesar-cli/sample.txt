@@ -1,0 +1,18 @@
+There are some text. You can encode it.
+
+[ArgumentsParser]: Missing required arguments: shift, action
+Usage: node caesar-cli options
+
+Options:
+      --version  Show version number  [boolean]
+  -s, --shift    Set the shift for decode/encode data  [number] [required]
+  -a, --action   Specify what action you want to perform  [required] [choices: "encode", "decode"]
+  -i, --input    Specify the file where to get the data from  [string]
+  -o, --output   Specify the file to save the data to  [string]
+  -h, --help     Show help  [boolean]
+
+Examples:
+  node caesar-cli --shift=7 --action=encode        Encode data from stdin with shift 7 and print result to stdout
+  node caesar-cli -s 2 -a decode -i topsecret.txt  Decode topsecret.txt with shift 2 and print result to stdout
+
+Missing required arguments: shift, action
