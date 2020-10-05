@@ -103,5 +103,4 @@ CAESAR-CLI accepts these options (short alias and full name):
 You can also use these options for get additional information about **CAESAR-CLI**:
 
 - **-h, --help**: show help & exit
-- **--usage**: show usage info & exit
 - **--version**: show app version & exit
