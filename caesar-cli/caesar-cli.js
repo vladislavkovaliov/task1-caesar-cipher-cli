@@ -12,7 +12,7 @@ async function run() {
 
   await pipeline(
     inputStream(input),
-    new CaesarTransform(shift, { decodeStrings: false }),
+    new CaesarTransform(correctedShift, { decodeStrings: false }),
     outputStream(output),
     (err) => {
       if (err) {
