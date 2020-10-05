@@ -50,7 +50,7 @@ yargs
   .alias("help", "h")
   .wrap(yargs.terminalWidth())
   .epilog("(c) 2020 Marat Maksumov")
-  .scriptName(`node ${path.basename(__filename)}`)
+  .scriptName("node caesar-cli")
   .parse(process.argv, {}, (err, argv, output) => {
     console.log("argv :>> ", argv);
     console.log("------------------------ ");
