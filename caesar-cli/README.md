@@ -71,7 +71,7 @@ node caesar-cli --usage
 
 When you run any of these commands, you will see detailed help for using the app
 
-```
+```bash
 Usage: node caesar-cli options
 
 Options:
