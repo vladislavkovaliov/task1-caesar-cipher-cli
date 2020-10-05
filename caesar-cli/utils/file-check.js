@@ -16,7 +16,7 @@ const isAccessible = (path, mode) => {
       return true;
     }
   } catch (err) {
-    // console.error("no access!");
+    // Do nothing. This is just meaning that path isn't accessible
   }
   return false;
 };
@@ -58,13 +58,3 @@ const isReadableFile = (path) => isCorrectFile(path, READABLE);
 const isWritableFile = (path) => isCorrectFile(path, WRITABLE);
 
 module.exports = { pathInfo, isReadableFile, isWritableFile };
-
-// const f = process.argv[2];
-// console.log(f);
-// console.log("pathInfo(f) :>> ", pathInfo(f));
-// console.log("is visible:", isAccessible(f, VISIBLE));
-// console.log("is exists:", fs.existsSync(f));
-// console.log("is file:", isFile(f));
-// console.log("is readable:", isAccessible(f, READABLE));
-// console.log("is readable file:", isReadableFile(f));
-// console.log("is writable file:", isWritableFile(f));

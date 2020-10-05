@@ -1,6 +1,6 @@
 const yargs = require("yargs");
 const pjson = require("../package.json");
-const path = require("path");
+const { errorHandler } = require("./error-handler");
 
 yargs
   .usage("Usage: $0 options")
@@ -49,16 +49,14 @@ yargs
   .locale("en")
   .alias("help", "h")
   .wrap(yargs.terminalWidth())
-  .epilog("(c) 2020 Marat Maksumov")
   .scriptName("node caesar-cli")
   .parse(process.argv, {}, (err, argv, output) => {
-    // console.log("argv :>> ", argv);
-    // console.log("------------------------ ");
-    if (err !== null) {
-      // TODO: Make a single utility to show Error messages
-      console.error("Error:", err.message);
-      console.log("------------------------ ");
-      process.exitCode = -1;
+    if (err !== null && typeof err === "object") {
+      console.log("err", err);
+      console.log("typeof err", typeof err);
+      // console.log("----------------");
+      console.log("argv :>> ", argv);
+      return errorHandler("ArgumentsParser", err.message);
     }
   });
 
