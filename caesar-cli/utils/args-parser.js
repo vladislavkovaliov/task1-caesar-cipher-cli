@@ -52,11 +52,11 @@ yargs
   .epilog("(c) 2020 Marat Maksumov")
   .scriptName("node caesar-cli")
   .parse(process.argv, {}, (err, argv, output) => {
-    console.log("argv :>> ", argv);
-    console.log("------------------------ ");
+    // console.log("argv :>> ", argv);
+    // console.log("------------------------ ");
     if (err !== null) {
-      console.error("Ошибка! :>> ");
-      console.log("argv :>> ", err);
+      // TODO: Make a single utility to show Error messages
+      console.error("Error:", err.message);
       console.log("------------------------ ");
       process.exitCode = -1;
     }
