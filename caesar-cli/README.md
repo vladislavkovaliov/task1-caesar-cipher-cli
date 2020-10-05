@@ -63,12 +63,6 @@ or
 node caesar-cli -h
 ```
 
-or
-
-```bash
-node caesar-cli --usage
-```
-
 When you run any of these commands, you will see detailed help for using the app
 
 ```bash
@@ -85,8 +79,6 @@ Options:
 Examples:
   node caesar-cli --shift=7 --action=encode        Encode data from stdin with shift 7 and print result to stdout
   node caesar-cli -s 2 -a decode -i topsecret.txt  Decode topsecret.txt with shift 2 and print result to stdout
-
-(c) 2020 Marat Maksumov
 ```
 
 ### Options

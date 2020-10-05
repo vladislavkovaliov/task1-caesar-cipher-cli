@@ -52,10 +52,6 @@ yargs
   .scriptName("node caesar-cli")
   .parse(process.argv, {}, (err, argv, output) => {
     if (err !== null && typeof err === "object") {
-      console.log("err", err);
-      console.log("typeof err", typeof err);
-      // console.log("----------------");
-      console.log("argv :>> ", argv);
       return errorHandler("ArgumentsParser", err.message);
     }
   });
