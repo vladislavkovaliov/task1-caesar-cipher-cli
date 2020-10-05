@@ -18,6 +18,7 @@
   "author": "Marat Maksumov",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.0",
     "yargs": "^16.0.3"
   }
 }
