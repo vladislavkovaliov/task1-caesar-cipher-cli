@@ -46,6 +46,17 @@ yargs
     type: "string",
   })
   .help("help")
+  .epilog(
+    `N.B.: 1. If output file isn't exist it wouldn't be created. You can write output stream only to existing file.
+      2. If --input option is omitted - STDIN is used as an input source. Use Ctrl+C for break input.
+      3. If --output option is omitted - STDOUT is used as an output destination.
+      4. --shift value can be negative and can exceed the size of the alphabet.
+      5. Only English alphabet characters are encoded/decoded, all other characters will be kept intact.
+      6. If --help is given the help is displayed and other options are ignored.
+      7. If --version is given and --help is omitted the version of app is displayed and other options are ignored.
+
+Values for options can be set like "--action encode" (whitespace separated) or "--action=encode" (= separated). It doesn't matter.`
+  )
   .locale("en")
   .alias("help", "h")
   .wrap(yargs.terminalWidth())
