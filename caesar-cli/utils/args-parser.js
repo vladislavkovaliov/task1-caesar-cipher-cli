@@ -65,7 +65,7 @@ Values for options can be set like "--action encode" (whitespace separated) or "
     if (err !== null && typeof err === "object") {
       return errorHandler("ArgumentsParser", err.message);
     }
-    if (isNaN(argv.shift)) {
+    if (argv.shift && isNaN(argv.shift)) {
       return errorHandler("ArgumentsParser", "Shift value must be number!!!");
     }
   });
